@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.MessagePack", "ServiceStack.MessagePack\ServiceStack.MessagePack.csproj", "{356F4C1D-52BB-4BA3-8649-EBE76996F98E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.MessagePack.Tests.Unit", "ServiceStack.MessagePack.Tests.Unit\ServiceStack.MessagePack.Tests.Unit.csproj", "{762D24A1-8F18-4D17-BF2C-7B5F4D3458B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{356F4C1D-52BB-4BA3-8649-EBE76996F98E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{356F4C1D-52BB-4BA3-8649-EBE76996F98E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{356F4C1D-52BB-4BA3-8649-EBE76996F98E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{356F4C1D-52BB-4BA3-8649-EBE76996F98E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{762D24A1-8F18-4D17-BF2C-7B5F4D3458B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{762D24A1-8F18-4D17-BF2C-7B5F4D3458B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{762D24A1-8F18-4D17-BF2C-7B5F4D3458B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{762D24A1-8F18-4D17-BF2C-7B5F4D3458B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
