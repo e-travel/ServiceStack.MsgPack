@@ -42,7 +42,7 @@ namespace ServiceStack.MessagePack.Tests.Unit
         public void Dictionary_Works()
         {
             var packer = new CompiledPacker(true);
-            var res = packer.Pack(new Dictionary<string,string>{{"a","b"},{"c","d"}} as IDictionary<string,string>);
+            var res = packer.Pack(new Dictionary<string,string>{{"a","b"},{"c","d"}});
             Assert.Greater(res.Length, 0);
         }
 
