@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CapabilitiesTests.cs" />
+    <Compile Include="Helpers\HexDump.cs" />
     <Compile Include="MessagePackSerializerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

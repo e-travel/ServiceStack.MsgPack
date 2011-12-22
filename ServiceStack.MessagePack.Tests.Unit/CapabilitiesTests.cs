@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using MsgPack;
 using NUnit.Framework;
+using ServiceStack.MessagePack.Tests.Unit.Helpers;
 
 namespace ServiceStack.MessagePack.Tests.Unit
 {
@@ -33,9 +34,7 @@ namespace ServiceStack.MessagePack.Tests.Unit
         [Test]
         public void Guid_Works()
         {
-            var packer = new CompiledPacker();
-            var res = packer.Pack(new GuidClass {Test = Guid.NewGuid()});
-            Assert.Greater(res.Length,0);
+            TestPacker(new GuidClass{Test = Guid.Empty});
         }
 
         [Test]
@@ -44,6 +43,20 @@ namespace ServiceStack.MessagePack.Tests.Unit
             var packer = new CompiledPacker(true);
             var res = packer.Pack(new Dictionary<string,string>{{"a","b"},{"c","d"}});
             Assert.Greater(res.Length, 0);
+        }
+
+        private void TestPacker<T>(T obj)
+        {
+            var packer = new CompiledPacker(true);
+            var res = packer.Pack(obj);
+            Console.WriteLine(HexDump.Dump(res));
+            Assert.Greater(res.Length, 0);
+        }
+
+        #region Test classes (as boxes for values)
+        public class GuidClass
+        {
+            public Guid Test { get; set; }
         }
 
         public class StringClass
@@ -60,10 +73,6 @@ namespace ServiceStack.MessagePack.Tests.Unit
         {
             public DateTime Test { get; set; }
         }
-
-        public class GuidClass
-        {
-            public Guid Test { get; set; }
-        }
+        #endregion
     }
 }

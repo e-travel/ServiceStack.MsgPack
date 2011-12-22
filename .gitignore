@@ -4,3 +4,4 @@ obj
 _Resharper.*
 *.suo
 *.typemock.*
+*.dotcover
