@@ -16,27 +16,27 @@ namespace ServiceStack.WebHost.Endpoints.Formats.MessagePack
         {
             _packMethod = typeof(CompiledPacker)
                 .GetMethods()
-                .Where(x =>
+                .First(x =>
                     x.IsGenericMethodDefinition &&
                     x.GetParameters().Length == 2 &&
                     x.GetParameters()[0].ParameterType == typeof(Stream) &&
-                    x.Name == "Pack")
-                .First();
-            _unpackMethod = typeof(CompiledPacker)
+                    x.Name == "Pack");
+            _unpackMethod = typeof (CompiledPacker)
                 .GetMethods()
-                .Where(x =>
-                    x.IsGenericMethodDefinition &&
-                    x.GetParameters().Length == 1 &&
-                    x.GetParameters()[0].ParameterType == typeof(Stream) &&
-                    x.Name == "Unpack")
-                .First();
+                .First(x =>
+                       x.IsGenericMethodDefinition &&
+                       x.GetParameters().Length == 1 &&
+                       x.GetParameters()[0].ParameterType == typeof (Stream) &&
+                       x.Name == "Unpack");
+
             _packer = new CompiledPacker();
         }
 
-        public void SerializeToStream(object response, Stream stream)
+        public void SerializeToStream(object value, Stream stream)
         {
-            var method = _packMethod.MakeGenericMethod(response.GetType());
-            method.Invoke(_packer, new[] { stream, response });
+            if (value == null) return;
+            var method = _packMethod.MakeGenericMethod(value.GetType());
+            method.Invoke(_packer, new[] { stream, value });
         }
 
         public object DeserializeFromStream(Type type, Stream stream)
